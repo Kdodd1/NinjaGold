@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css.css') }}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.container1{
+		width: 1250px;
+		margin: auto;
+	}
+	.card{
+		display:inline-block;
+		margin-left: 30px;
+		border: solid black 2px;
+	
+		text-align: center;
+		height: 300px;
+		width: 270px;
+		vertical-align: top;
+	}
+
+	.btn{
+		background-color:black;
+		margin-top: 100px
+	}
+	.bottom{
+		padding: 10px;
+		overflow:scroll;
+		height: 200px;
+		background-color: black;
+		border-radius: 5px;
+		color: green;
+	}
+
+</style>
+
+</head>
+<body>
+<div class="container1">
+	<div class="container header">
+		<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" id="gold" href="#">Gold {{session['gold']}} </a>
+    </div>
+   
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="{{session['gold']}}">
+      </div>
+    </form>
+  </div>
+</nav>
+	</div>
+	<div class="card w-25" id="card1">
+  	<div class="card-body">
+    <h5 class="card-title">Farm</h5>
+    <p class="card-text">(earn 10-20 gold)</p>
+    <form action="/process" method="post">
+    	<input type="hidden" name="building" value="farm"/>
+    	<button type="submit" class="btn btn-primary">Find Gold!</button>
+	</form>
+  </div>
+</div>
+	<div class="card w-25">
+  <div class="card-body">
+    <h5 class="card-title">Cave</h5>
+    <p class="card-text">(earn 5- 10 gold)</p>
+    <form action="/process" method="post">
+    	<input type="hidden" name="building" value="cave"/>
+    	<button type="submit" class="btn btn-primary">Find Gold!</button>
+	</form>
+  </div>
+</div>
+	<div class="card w-25">
+  <div class="card-body">
+    <h5 class="card-title">House</h5>
+    <p class="card-text">(earn 2-5 gold)</p>
+    <form action="/process" method="post">
+    	<input type="hidden" name="building" value="house"/>
+    <button type="submit" class="btn btn-primary">Find Gold!</button>
+	</form>
+  </div>
+</div>
+	<div class="card w-25">
+  <div class="card-body">
+    <h5 class="card-title">Casino</h5>
+    <p class="card-text">earn/take 0-50 gold </p>
+    <form action="/process" method="post">
+    	<input type="hidden" name="building" value="casino"/>
+    <button type="submit" class="btn btn-primary">Find Gold!</button>
+	</form>
+  </div>
+
+</div>
+ <h3>Activites:</h3>
+ <div class="bottom">
+ 	{% for message in range(0, session["message"]|length) %}
+ 		<p>{{ session['message'][message] }}</p>
+ 	{% endfor %}
+ </div>
+</div>
+
+
+</body>
+</html>
