@@ -44,12 +44,12 @@ def process():
 		if winLose == 0:
 			winGold = random.randint(0, 50)
 			session['gold'] += winGold
-			session["message"].append('You earned ' + str(randnum) + ' gold from the casino! (' +
+			session["message"].append('You earned ' + str(winGold) + ' gold from the casino! (' +
             '{:%Y/%m/%d %I:%M %p})'.format(datetime.datetime.now()))
 		elif winLose == 1:
 			loseGold = random.randint(-50, 0)
 			session['gold']+= loseGold
-			session["message"].append('You lost ' + str(randnum) + ' gold from the casino! (' +
+			session["message"].append('You lost ' + str(loseGold) + ' gold from the casino! (' +
             '{:%Y/%m/%d %I:%M %p})'.format(datetime.datetime.now()))
 	
 	return redirect('/')

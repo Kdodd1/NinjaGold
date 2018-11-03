@@ -34,6 +34,14 @@
 		border-radius: 5px;
 		color: green;
 	}
+	.goldBox{
+		margin-top:15px;
+		height: 20px;
+		width: 70px;
+		border-radius: 3px;
+		display: inline-block;
+		background-color: white;
+	}
 
 </style>
 
@@ -44,14 +52,11 @@
 		<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" id="gold" href="#">Gold {{session['gold']}} </a>
+      <a class="navbar-brand" id="gold" href="#">Gold:</a>
     </div>
-   
-    <form class="navbar-form navbar-left" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="{{session['gold']}}">
-      </div>
-    </form>
+    <div class=goldBox>
+    	{{session['gold']}} 
+    </div>
   </div>
 </nav>
 	</div>
